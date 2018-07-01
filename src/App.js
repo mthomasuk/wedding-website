@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Form from "./components/form/Form";
 import "./App.css";
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             invitation...
           </p>
         </div>
+        <Form />
       </div>
     );
   }

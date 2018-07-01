@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   font-family: "Big-Caslon", serif;
-  justify-content: center;
-  margin: 4em 0;
+  justify-content: flex-start;
+  margin: 3em 0;
   height: 100%;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -17,10 +17,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: -25px;
+  color: rgb(245, 240, 223);
   font-family: "Amatic-regular";
   font-size: 2.2em;
   padding: 75px 0;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
 }
 
 .App-header h1,
@@ -47,4 +49,16 @@
 
 .App-intro .p-date {
   font-size: 2em;
+}
+
+@media (max-width: 580px) {
+  .App-header {
+    text-shadow: 1px 1px 1px #070624;
+  }
+}
+
+@media (max-width: 340px) {
+  .App-header {
+    font-size: 28px;
+  }
 }
