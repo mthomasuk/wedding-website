@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Form from "./components/form/Form";
 import Overlay from "./components/overlay/Overlay";
+import Particles from "./components/particles/Particles";
 import "./App.css";
 
 class App extends PureComponent {
@@ -26,6 +27,7 @@ class App extends PureComponent {
         </div>
         <Form />
         <Overlay />
+        <Particles />
       </div>
     );
   }
