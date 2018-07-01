@@ -1,0 +1,56 @@
+.Overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.Overlay img {
+  height: auto;
+  max-width: 450px;
+  position: absolute;
+}
+
+.Overlay img:first-of-type {
+  bottom: 850px;
+  right: 140px;
+  width: 45px;
+  transform: rotate(-10deg);
+}
+
+.Overlay img:nth-of-type(2) {
+  bottom: 650px;
+  right: 130px;
+  width: 60px;
+  transform: rotate(190deg);
+}
+
+.Overlay img:nth-of-type(3) {
+  bottom: 550px;
+  left: 210px;
+  width: 65px;
+  transform: rotate(220deg);
+}
+
+.Overlay img:nth-of-type(4) {
+  bottom: 430px;
+  left: 80px;
+  width: 130px;
+  transform: rotate(-5deg);
+}
+
+.Overlay img:nth-of-type(5) {
+  bottom: 220px;
+  left: 110px;
+  width: 170px;
+  transform: rotate(55deg);
+}
+
+.Overlay img:last-of-type {
+  bottom: -170px;
+  left: -75px;
+}

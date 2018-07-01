@@ -22,6 +22,7 @@
   font-size: 2.2em;
   padding: 75px 0;
   max-width: 600px;
+  text-shadow: 1px 1px 0px #070624;
   width: 100%;
 }
 
@@ -45,16 +46,11 @@
 .App-intro {
   max-width: 260px;
   padding: 5% 0;
+  text-shadow: 1px 1px 0px #070624;
 }
 
 .App-intro .p-date {
   font-size: 2em;
-}
-
-@media (max-width: 580px) {
-  .App-header {
-    text-shadow: 1px 1px 1px #070624;
-  }
 }
 
 @media (max-width: 340px) {

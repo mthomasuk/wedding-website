@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Form from "./components/form/Form";
+import Overlay from "./components/overlay/Overlay";
 import "./App.css";
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <div className="App">
@@ -24,6 +25,7 @@ class App extends Component {
           </p>
         </div>
         <Form />
+        <Overlay />
       </div>
     );
   }
