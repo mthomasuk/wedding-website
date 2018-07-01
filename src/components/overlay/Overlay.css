@@ -6,6 +6,7 @@
   right: 0;
   width: 100%;
   overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
   z-index: -1;
 }
 
@@ -53,4 +54,10 @@
 .Overlay img:last-of-type {
   bottom: -170px;
   left: -75px;
+}
+
+@media (max-width: 500px) {
+  .Overlay {
+    opacity: 0.5;
+  }
 }
