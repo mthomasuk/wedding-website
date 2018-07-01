@@ -5,24 +5,32 @@
   flex-direction: column;
   font-family: "Big-Caslon", serif;
   justify-content: center;
+  margin: 4em 0;
   height: 100%;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .App-header {
+  background-image: url("/images/new moon with hydragea.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: -25px;
   font-family: "Amatic-regular";
   font-size: 2.2em;
-  padding: 10% 0;
+  padding: 75px 0;
+  width: 600px;
 }
 
 .App-header h1,
 .App-header h3,
-.App-header .small-amp {
+.App-header .span-small-amp {
   line-height: 1;
   margin: 0;
 }
 
-.App-header .small-amp {
+.App-header .span-small-amp {
   font-size: 0.5em;
 }
 
@@ -33,5 +41,10 @@
 }
 
 .App-intro {
+  max-width: 260px;
   padding: 5% 0;
+}
+
+.App-intro .p-date {
+  font-size: 2em;
 }

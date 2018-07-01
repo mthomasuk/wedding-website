@@ -7,14 +7,20 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">
-            Mark<span className="small-amp">&</span>Rhiannon
+            Mark<span className="span-small-amp">&</span>Rhiannon
           </h1>
           <h3>Are Getting</h3>
           <h1>Married</h1>
         </header>
         <div className="App-intro">
-          <p>7th September</p>
-          <p>2019</p>
+          <p className="p-date">
+            7th September<br />2019
+          </p>
+          <p>We'd love to have you there!</p>
+          <p>
+            Just enter your postal address below and we'll send you an
+            invitation...
+          </p>
         </div>
       </div>
     );
