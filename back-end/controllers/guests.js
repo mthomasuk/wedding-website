@@ -6,8 +6,8 @@ module.exports = {
     getGuestByID: async ctx => {
         try {
             const { rows } = await knex.raw(
-                "SELECT * FROM guests WHERE id = ?;",
-                [ctx.params.id],
+                "SELECT * FROM guests WHERE key = ?;",
+                [ctx.params.key],
             );
             ctx.status = 200;
             ctx.body = rows.length ? rows[0] : {};

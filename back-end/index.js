@@ -19,7 +19,7 @@ application.use(compress());
 application.use(body({ multipart: false }));
 application.use(serve("static"));
 
-router.get("/guests/:id", getGuestByID);
+router.get("/guests/:key", getGuestByID);
 
 application.use(router.routes()).use(router.allowedMethods());
 
