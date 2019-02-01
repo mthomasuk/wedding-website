@@ -5,16 +5,26 @@ const body = require("koa-body");
 const compress = require("koa-compress");
 const helmet = require("koa-helmet");
 
+const cors = require("@koa/cors");
+
 const { HOST, PORT } = require("./config");
 
 const {
     guests: { getGuestByID },
 } = require("./controllers");
 
+const {
+    env: { NODE_ENV },
+} = process;
+
 const application = new Koa();
 const router = new Router();
 
-application.use(helmet());
+if (NODE_ENV !== "production") {
+    application.use(cors());
+} else {
+    application.use(helmet());
+}
 application.use(compress());
 application.use(body({ multipart: false }));
 application.use(serve("static"));
@@ -26,4 +36,3 @@ application.use(router.routes()).use(router.allowedMethods());
 application.listen(PORT, async () => {
     console.log(`Listening on :: http://${HOST}:${PORT}`);
 });
-
