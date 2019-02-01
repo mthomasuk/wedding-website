@@ -3,33 +3,43 @@ import React, { PureComponent } from "react";
 import "./Overlay.css";
 
 class Overlay extends PureComponent {
+    static getDerivedStateFromProps({ hideForm }, { height }) {
+        if (hideForm) {
+            return {
+                height: "auto",
+            };
+        }
+
+        return height;
+    }
+
   state = {
-    height: 0
+      height: 0,
   };
 
   componentDidMount() {
-    this.onSetPageHeight();
+      this.onSetPageHeight();
   }
 
   onSetPageHeight = () => {
-    const height = document.documentElement.scrollHeight + 150;
-    this.setState({
-      height
-    });
+      const height = document.documentElement.scrollHeight + 150;
+      this.setState({
+          height,
+      });
   };
 
   render() {
-    const { height } = this.state;
-    return (
-      <div className="Overlay" style={{ height }}>
-        <img src="/images/moon flower.png" alt="first flower" />
-        <img src="/images/moon flower.png" alt="second flower" />
-        <img src="/images/moon flower.png" alt="third flower" />
-        <img src="/images/moon flower2.png" alt="fourth flower" />
-        <img src="/images/moon flower2.png" alt="fifth flower" />
-        <img src="/images/moon flower.png" alt="sixth flower" />
-      </div>
-    );
+      const { height } = this.state;
+      return (
+          <div className="Overlay" style={{ height }}>
+              <img src="/images/moon flower.png" alt="first flower" />
+              <img src="/images/moon flower.png" alt="second flower" />
+              <img src="/images/moon flower.png" alt="third flower" />
+              <img src="/images/moon flower2.png" alt="fourth flower" />
+              <img src="/images/moon flower2.png" alt="fifth flower" />
+              <img src="/images/moon flower.png" alt="sixth flower" />
+          </div>
+      );
   }
 }
 

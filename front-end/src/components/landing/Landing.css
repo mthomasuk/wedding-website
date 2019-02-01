@@ -5,7 +5,7 @@
   flex-direction: column;
   font-family: "Big-Caslon", serif;
   justify-content: flex-start;
-  margin: 3em 0;
+  padding: 3em 0;
   height: 100%;
   text-align: center;
   -webkit-font-smoothing: antialiased;
