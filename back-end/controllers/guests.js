@@ -3,16 +3,6 @@ const {
 } = require("../database");
 
 module.exports = {
-    getAllGuests: async ctx => {
-        try {
-            const { rows } = await knex.raw("SELECT * FROM guests;");
-            ctx.status = 200;
-            ctx.body = rows;
-        } catch (err) {
-            console.warn({ err });
-            ctx.status = 500;
-        }
-    },
     getGuestByID: async ctx => {
         try {
             const { rows } = await knex.raw(
@@ -20,7 +10,7 @@ module.exports = {
                 [ctx.params.id],
             );
             ctx.status = 200;
-            ctx.body = rows[0];
+            ctx.body = rows.length ? rows[0] : {};
         } catch (err) {
             console.warn({ err });
             ctx.status = 500;

@@ -8,7 +8,7 @@ const helmet = require("koa-helmet");
 const { HOST, PORT } = require("./config");
 
 const {
-    guests: { getAllGuests, getGuestByID },
+    guests: { getGuestByID },
 } = require("./controllers");
 
 const application = new Koa();
@@ -19,7 +19,6 @@ application.use(compress());
 application.use(body({ multipart: false }));
 application.use(serve("static"));
 
-router.get("/guests", getAllGuests);
 router.get("/guests/:id", getGuestByID);
 
 application.use(router.routes()).use(router.allowedMethods());

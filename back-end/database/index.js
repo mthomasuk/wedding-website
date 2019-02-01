@@ -4,6 +4,7 @@ const {
 
 class Database {
     constructor() {
+        console.log("CONSTRUCTING");
         try {
             const knex = require("knex")({
                 client: "pg",
