@@ -2,7 +2,8 @@ import React, { PureComponent } from "react";
 
 import "./Particles.css";
 
-const ARR_OF_PARTICLES = new Array(30).fill(0);
+const NO_OF_PARTICLES = 30;
+const ARR_OF_PARTICLES = new Array(NO_OF_PARTICLES).fill(0);
 
 class Particles extends PureComponent {
     renderParticles = () => <div className="particle" />;
