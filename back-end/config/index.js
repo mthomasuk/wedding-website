@@ -1,5 +1,5 @@
 const {
-    env: { PORT, HOST, PG_HOST, PG_DB, PG_USER, PG_PASSWORD },
+    env: { PORT, HOST, PG_HOST, PG_DB, PG_USER, PG_PASSWORD, SECRET },
 } = process;
 
 module.exports = {
@@ -11,4 +11,5 @@ module.exports = {
         PG_USER: PG_USER || "postgres",
         PG_PASSWORD: PG_PASSWORD || "postgres",
     },
+    SECRET: SECRET || "peanutbutter",
 };
