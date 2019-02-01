@@ -2,12 +2,10 @@ const {
     PG: { PG_HOST, PG_DB, PG_PASSWORD, PG_USER },
 } = require("../config");
 
-let knex;
-
-module.exports = {
-    initDB: async () => {
+class Database {
+    constructor() {
         try {
-            knex = require("knex")({
+            const knex = require("knex")({
                 client: "pg",
                 connection: {
                     host: PG_HOST,
@@ -20,11 +18,15 @@ module.exports = {
                     max: 5,
                 },
             });
-            await knex.raw("SELECT 1;");
-            return knex;
+            this.knex = knex;
         } catch (err) {
             throw new Error(err);
         }
-    },
-    knex,
+    }
+}
+
+const db = new Database();
+
+module.exports = {
+    db,
 };

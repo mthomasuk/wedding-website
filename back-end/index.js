@@ -6,7 +6,6 @@ const compress = require("koa-compress");
 const helmet = require("koa-helmet");
 
 const { HOST, PORT } = require("./config");
-const { initDB } = require("./database");
 
 const {
     guests: { getAllGuests, getGuestByID },
@@ -25,7 +24,7 @@ router.get("/guests/:id", getGuestByID);
 
 application.use(router.routes()).use(router.allowedMethods());
 
-application.listen(PORT, () => {
-    initDB();
+application.listen(PORT, async () => {
     console.log(`Listening on :: http://${HOST}:${PORT}`);
 });
+
