@@ -1,4 +1,4 @@
-.App {
+.Landing {
   align-items: center;
   color: #fff;
   display: flex;
@@ -12,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
+.Landing-header {
   background-image: url("/images/new moon with hydragea.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -26,35 +26,35 @@
   width: 100%;
 }
 
-.App-header h1,
-.App-header h3,
-.App-header .span-small-amp {
+.Landing-header h1,
+.Landing-header h3,
+.Landing-header .span-small-amp {
   line-height: 1;
   margin: 0;
 }
 
-.App-header .span-small-amp {
+.Landing-header .span-small-amp {
   font-size: 0.5em;
 }
 
-.App-header h3 {
+.Landing-header h3 {
   font-size: 1.1em;
   margin-top: 0.25em;
   margin-bottom: 0.175em;
 }
 
-.App-intro {
+.Landing-intro {
   max-width: 260px;
   padding: 5% 0;
   text-shadow: 1px 1px 0px #070624;
 }
 
-.App-intro .p-date {
+.Landing-intro .p-date {
   font-size: 2em;
 }
 
 @media (max-width: 340px) {
-  .App-header {
+  .Landing-header {
     font-size: 28px;
   }
 }

@@ -1,37 +1,12 @@
-import React, { PureComponent } from "react";
-import Form from "./components/form/Form";
-import Overlay from "./components/overlay/Overlay";
-import Particles from "./components/particles/Particles";
+import React from "react";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
-import "./App.css";
+import LandingPage from "./components/landing";
 
-class App extends PureComponent {
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">
-                        Mark<span className="span-small-amp">&</span>Rhiannon
-                    </h1>
-                    <h3>Are Getting</h3>
-                    <h1>Married</h1>
-                </header>
-                <div className="App-intro">
-                    <p className="p-date">
-                        7th September<br />2019
-                    </p>
-                    <p>We'd love to have you there!</p>
-                    <p>
-                        Just enter your postal address below and we'll send you
-                        an invitation...
-                    </p>
-                </div>
-                <Form />
-                <Overlay />
-                <Particles />
-            </div>
-        );
-    }
-}
+export default () => <Router>
+        <Switch>
+            <Route exact path={"/:id"} component={LandingPage} />
+            <Route exact path={"/"} component={LandingPage} />
+        </Switch>
+    </Router>;
 
-export default App;
