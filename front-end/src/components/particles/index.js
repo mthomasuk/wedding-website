@@ -6,7 +6,7 @@ const NO_OF_PARTICLES = 30;
 const ARR_OF_PARTICLES = new Array(NO_OF_PARTICLES).fill(0);
 
 class Particles extends PureComponent {
-    renderParticles = () => <div className="particle" />;
+    renderParticles = (_, i) => <div key={i} className="particle" />;
 
     render() {
         return (

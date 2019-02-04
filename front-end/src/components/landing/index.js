@@ -12,7 +12,7 @@ const API_ROOT = "http://localhost:7778";
 class Landing extends Component {
     state = {
         hideForm: false,
-        name: null,
+        names: [],
     };
 
     componentDidMount() {
@@ -27,7 +27,7 @@ class Landing extends Component {
                 .then(response => response.json())
                 .then((json) => {
                     this.setState({
-                        name: json.name,
+                        names: json.map(u => u.name.split(" ")[0]),
                         hideForm: true,
                     });
                 });
@@ -35,7 +35,8 @@ class Landing extends Component {
     }
 
     render() {
-        const { hideForm, name } = this.state;
+        const { hideForm, names } = this.state;
+        const nameString = names.join(" & ");
 
         return (
             <div className="Landing">
@@ -56,7 +57,7 @@ class Landing extends Component {
                     </p>
                     <p>
                         We&#8217;d love to have you there
-                        {`${name ? ` ${name}` : ""}`}
+                        {`${nameString ? ` ${nameString}` : ""}`}
                         !
                     </p>
                     {!hideForm && (
