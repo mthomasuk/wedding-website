@@ -7,7 +7,7 @@ module.exports = {
         try {
             if (ctx.params.key) {
                 const { rows: famRows } = await knex.raw(
-                    "SELECT family_id FROM guests WHERE identifier = ?;",
+                    "SELECT family_id FROM guests WHERE key = ?;",
                     [ctx.params.key],
                 );
 
