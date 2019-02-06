@@ -5,42 +5,42 @@
   flex-direction: column;
   font-family: "Big-Caslon", serif;
   justify-content: flex-start;
-  padding: 3em 0;
+  position: relative;
   height: 100%;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Landing-header {
-  background-image: url("/images/new moon with hydragea.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: -25px;
-  color: rgb(245, 240, 223);
-  font-family: "Amatic-regular";
-  font-size: 2.2em;
-  padding: 75px 0;
-  max-width: 600px;
-  text-shadow: 1px 1px 0px #070624;
+.Landing-header,
+.Landing-background {
+  padding: 75px;
   width: 100%;
 }
 
-.Landing-header h1,
-.Landing-header h3,
-.Landing-header .span-small-amp {
+.Landing-header {
+  background-color: rgb(106, 140, 149);
+  color: #fff;
+  font-family: "Amatic-regular";
+  font-size: 2.2em;
+}
+
+.Landing-background {
+  background-image: url("/images/me_and_rheezy.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  height: 50%;
+  position: absolute;
+  z-index: 2;
+}
+
+.Landing-header h1 {
+  font-size: 3em;
   line-height: 1;
-  margin: 0;
-}
-
-.Landing-header .span-small-amp {
-  font-size: 0.5em;
-}
-
-.Landing-header h3 {
-  font-size: 1.1em;
-  margin-top: 0.25em;
-  margin-bottom: 0.175em;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
 }
 
 .Landing-intro {
@@ -53,8 +53,47 @@
   font-size: 2em;
 }
 
-@media (max-width: 340px) {
-  .Landing-header {
-    font-size: 28px;
+.Slash-left,
+.Slash-right,
+.Slash-bottom {
+  background-color: #fff;
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  z-index: 1;
+}
+
+.Slash-left {
+  transform: translate3d(0, 0, 0) rotate(-52deg);
+  top: -400px;
+  left: -525px;
+}
+
+.Slash-right {
+  transform: translate3d(0, 0, 0) rotate(30deg);
+  top: -370px;
+  right: -400px;
+  width: 800px;
+}
+
+.Slash-bottom {
+  bottom: 0;
+}
+
+@media (max-width: 770px) {
+  .Landing-background {
+    height: 33%;
+  }
+}
+
+@media (max-width: 400px) {
+  .Landing-header h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .Landing-background {
+    height: 66%;
+    position: relative;
   }
 }
