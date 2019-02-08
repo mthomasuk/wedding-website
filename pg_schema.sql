@@ -11,7 +11,7 @@ CREATE TABLE guests (
     name text NOT NULL,
     address text,
     song_choice text,
-    confirmed_attendance boolean DEFAULT false NOT NULL,
+    confirmed_attendance boolean,
     type_of_guest text DEFAULT 'ceremony'::text NOT NULL,
     family_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,

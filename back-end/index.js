@@ -10,7 +10,11 @@ const cors = require("@koa/cors");
 const { HOST, PORT } = require("./config");
 
 const {
-    guests: { getGuestByID },
+    guests: { 
+        getGuestByID, 
+        confirmAttendance, 
+        declineToAttend 
+    },
 } = require("./controllers");
 
 const {
@@ -30,6 +34,8 @@ application.use(body({ multipart: false }));
 application.use(serve("static"));
 
 router.get("/guests/:key", getGuestByID);
+router.post("/guests/:key/confirm", confirmAttendance);
+router.post("/guests/:key/decline", declineToAttend);
 
 application.use(router.routes()).use(router.allowedMethods());
 

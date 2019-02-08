@@ -28,6 +28,7 @@
   font-family: "Amatic-regular";
   font-size: 2.2em;
   min-height: 360px;
+  max-height: 420px;
 }
 
 .Landing-background {
@@ -81,10 +82,10 @@
 }
 
 .Slash-bottom {
-  bottom: -245px;
+  bottom: -270px;
   transform: rotate(-87deg);
   height: 1000px;
-  width: 130px;
+  width: 155px;
 }
 
 .Landing-content {
