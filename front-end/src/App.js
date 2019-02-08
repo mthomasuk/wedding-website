@@ -6,7 +6,11 @@ import LandingPage from "./components/landing";
 export default () => (
     <Router>
         <Switch>
-            <Route exact path="/:key" component={LandingPage} />
+            <Route
+                exact
+                path="/:key"
+                component={LandingPage}
+            />
             <Route exact path="/" component={LandingPage} />
         </Switch>
     </Router>
