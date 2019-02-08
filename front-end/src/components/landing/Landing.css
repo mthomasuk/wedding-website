@@ -84,6 +84,21 @@
   width: 130px;
 }
 
+.Landing-content {
+  color: #585858;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding: 0 10%;
+  text-align: left;
+}
+
+.Landing-content h3 {
+  font-size: 1.4em;
+}
+
+.Landing-content p {
+  font-size: 1.2em;
+}
+
 @media (max-width: 770px) {
   .Landing-background {
     height: 33%;

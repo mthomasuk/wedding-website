@@ -20,6 +20,7 @@ module.exports = {
         "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
         "react/jsx-indent": [1, 4],
         "react/jsx-indent-props": [2, 4],
+        "react/jsx-one-expression-per-line": [0],
         "react/no-find-dom-node": [0],
         "react/prefer-stateless-function": [0],
         "react/prop-types": [0],

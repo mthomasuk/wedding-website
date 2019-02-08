@@ -43,6 +43,12 @@ class Landing extends Component {
                 </header>
                 <div className="Landing-background" />
                 <div className="Slash-bottom" />
+                <div className="Landing-content">
+                    <h3>We&apos;d love to see you at our wedding</h3>
+                    <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br/>
+                    Can you make it?
+                    </p>
+                </div>
             </div>
         );
     }
