@@ -1,3 +1,14 @@
 .Button {
-	
+	background-color: #fff;
+	border: solid #737373 3px;
+	border-radius: 5px;
+  	font-family: "Amatic-regular", serif;
+	font-size: 1.8em;
+	margin: 7px 0;
+	padding: 7px;
+	width: 100%;
+}
+
+.Button:hover {
+	border-color: #000;
 }

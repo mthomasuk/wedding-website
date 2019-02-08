@@ -89,6 +89,7 @@
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   padding: 0 10% 10%;
   text-align: left;
+  z-index: 3;
 }
 
 .Landing-content h3 {
@@ -132,6 +133,7 @@
     background-position: center;
     height: 66%;
     margin-top: -110px;
+    padding: 75px 0;
     position: relative;
   }
 
