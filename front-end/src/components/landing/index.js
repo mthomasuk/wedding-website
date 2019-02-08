@@ -32,7 +32,8 @@ class Landing extends Component {
 
     render() {
         const { names } = this.state;
-        const nameString = names.length ? names.join(" & ") : "";
+        const haveNames = Boolean(names.length);
+        const nameString = haveNames ? names.join(" & ") : "";
 
         return (
             <div className="Landing">
@@ -45,7 +46,7 @@ class Landing extends Component {
                 </header>
                 <div className="Landing-background" />
                 <div className="Slash-bottom" />
-                <div className="Landing-content">
+                {haveNames && <div className="Landing-content">
                     <h3>We&apos;d love to see you at our wedding</h3>
                     <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
                     Can you make it?
@@ -54,7 +55,7 @@ class Landing extends Component {
                         <Button title={"Yes - I'll be there"} />
                         <Button title={"No - I can't make it"} />
                     </div>
-                </div>
+                </div>}
             </div>
         );
     }

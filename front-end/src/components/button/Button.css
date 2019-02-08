@@ -2,13 +2,17 @@
 	background-color: #fff;
 	border: solid #737373 3px;
 	border-radius: 5px;
+	color: #737373;
+	cursor: pointer;
   	font-family: "Amatic-regular", serif;
 	font-size: 1.8em;
 	margin: 7px 0;
 	padding: 7px;
+	transition: all 0.15s ease-in-out;
 	width: 100%;
 }
 
 .Button:hover {
 	border-color: #000;
+	color: #000;
 }
