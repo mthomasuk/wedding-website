@@ -80,7 +80,10 @@ class Landing extends Component {
 
         return (
             <div className="Landing">
-                <Header nameString={nameString} />
+                <Header
+                    nameString={nameString}
+                    backgroundColour="rgb(106, 140, 149)"
+                />
                 {haveNames && !confirmed && (
                     <div className="Landing-content">
                         <h3>We&apos;d love to see you at our wedding</h3>

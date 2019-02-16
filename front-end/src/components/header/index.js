@@ -4,12 +4,15 @@ import Menu from "../menu";
 
 import "./Header.css";
 
-const Header = ({ nameString }) => (
+const Header = ({
+    backgroundColour: backgroundColor,
+    nameString,
+}) => (
     <Fragment>
         <Menu />
         <div className="Slash-left" />
         <div className="Slash-right" />
-        <header className="Header-header">
+        <header className="Header-header" style={{ backgroundColor }}>
             <h1 className="Header-title">
                 {`Hi${nameString ? ` ${nameString}` : ""}!`}
             </h1>
