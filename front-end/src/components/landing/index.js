@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
+import Menu from "../menu";
 import Button from "../button";
 
 import "./Landing.css";
@@ -79,6 +80,7 @@ class Landing extends Component {
 
         return (
             <div className="Landing">
+                <Menu />
                 <div className="Slash-left" />
                 <div className="Slash-right" />
                 <header className="Landing-header">

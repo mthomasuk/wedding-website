@@ -1,0 +1,50 @@
+.Menu {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	left: 1em;
+	right: 0;
+	top: 1em;
+	position: absolute;
+	width: 100%;
+	z-index: 3;
+}
+
+.Menu button {
+	color: #585858;
+	cursor: pointer;
+	font-family: "Amatic-regular";
+	font-size: 1.75em;
+	outline: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.Dropdown-menu {
+	background-color: #fff;
+	border: solid 2px #585858;
+	color: rgb(106, 140, 149);
+	font-family: "Amatic-regular";
+	font-size: 1.75em;
+	list-style: none;
+	max-width: 180px;
+	padding: 0.0.5em 0.15em;
+	position: absolute;
+	top: -28px;
+	left: 0;
+}
+
+.Dropdown-menu li {
+	font-weight: 600;
+	padding: 0.5em 0.25em;
+}
+
+.Dropdown-menu li:first-of-type {
+	color: #585858;
+}
+
+
+.Dropdown-menu li a {
+	color: inherit;
+	text-decoration: none;
+}
