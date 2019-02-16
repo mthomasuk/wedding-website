@@ -14,6 +14,7 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 class Dinner extends Component {
     state = {
+        ids: [],
         course: COURSES[0],
         dinnerChoices: {},
         names: [],
@@ -21,6 +22,9 @@ class Dinner extends Component {
 
     componentDidMount() {
         const {
+            history: {
+                push,
+            },
             match: {
                 params: { key },
             },
@@ -30,11 +34,22 @@ class Dinner extends Component {
             fetch(`${API_ROOT}/guests/${key}`)
                 .then(response => response.json())
                 .then((json) => {
+                    const ids = json.map(({ id, name }) => ({ name, id }));
                     const names = json.map(u => u.name.split(" ")[0]);
-                    // const dinnerChoices = json.map(u => u.food_choices).filter(Boolean);
+
+                    const dinnerChoices = json.map(u => u.food_choices).filter(Boolean);
+                    const dinnerKeys = Object.keys(dinnerChoices);
+
+                    const isCompleted = dinnerKeys.length === names.length && dinnerKeys
+                        .sort()
+                        .every((value, index) => value === names.sort()[index]);
+
+                    if (isCompleted) {
+                        return push(`/allergies/${key}`);
+                    }
 
                     return this.setState({
-                        // dinnerChoices,
+                        ids,
                         names,
                     });
                 });
@@ -57,8 +72,25 @@ class Dinner extends Component {
         });
     }
 
-    onNext = () => {
-        const { course, dinnerChoices, names } = this.state;
+    onNext = async () => {
+        const {
+            history: {
+                push,
+            },
+            match: {
+                params: {
+                    key,
+                },
+            },
+        } = this.props;
+
+        const {
+            course,
+            dinnerChoices,
+            ids,
+            names,
+        } = this.state;
+
         const dinnerKeys = Object.keys(dinnerChoices);
 
         const isCompleted = dinnerKeys.length === names.length && dinnerKeys
@@ -70,9 +102,16 @@ class Dinner extends Component {
 
         if (isCompleted) {
             if (nextCourseIndex === COURSES.length) {
-                console.log({
-                    dinnerChoices,
-                });
+                await Promise.all(ids.map(({ id, name }) =>
+                    fetch(`${API_ROOT}/guests/${id}/dinner`, {
+                        body: JSON.stringify(dinnerChoices[name]),
+                        method: "POST",
+                    }).then((response) => {
+                        if (response.ok) {
+                            return push(`/dinner/${key}`);
+                        }
+                    }),
+                )).catch(err => console.warn({ err }));
             } else {
                 this.setState({
                     course: COURSES[nextCourseIndex],
