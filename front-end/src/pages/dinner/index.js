@@ -107,7 +107,7 @@ class Dinner extends Component {
                     method: "POST",
                 }).then((response) => {
                     if (response.ok) {
-                        return push(`/dinner/${key}`);
+                        return push(`/allergies/${key}`);
                     }
                 }))).catch(err => console.warn({ err }));
             } else {
