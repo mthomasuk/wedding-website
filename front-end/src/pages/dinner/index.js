@@ -119,14 +119,27 @@ class Dinner extends Component {
     }
 
     onBack = () => {
+        const {
+            history: {
+                push,
+            },
+            match: {
+                params: {
+                    key,
+                },
+            },
+        } = this.props;
+
         const { course } = this.state;
         const courseIndex = COURSES.indexOf(course);
 
         if (courseIndex >= 1) {
-            this.setState({
+            return this.setState({
                 course: COURSES[courseIndex - 1],
             });
-        }
+        } 
+        
+        return push(`/${key}`);
     }
 
     render() {

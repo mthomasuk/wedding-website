@@ -12,11 +12,13 @@ const RSVP = ({
 }) => (
     <Fragment>
         {haveNames && !hasDeclined && (
-            <div className="RSVP-content">
-                <h3>We&apos;d love to see you at our wedding</h3>
-                <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
+            <Fragment>
+                <div className="RSVP-content">
+                    <h3>We&apos;d love to see you at our wedding</h3>
+                    <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
                     Can you make it?
-                </p>
+                    </p>
+                </div>
                 <div className="Button-container">
                     <Button
                         title={"Yes - I'll be there"}
@@ -27,7 +29,7 @@ const RSVP = ({
                         onClick={declineToAttend}
                     />
                 </div>
-            </div>
+            </Fragment>
         )}
         {haveNames && hasDeclined && (
             <div className="RSVP-content">

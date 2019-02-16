@@ -2,7 +2,7 @@
   color: #585858;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   max-width: 750px;
-  padding: 7.5% 10% 10%;
+  padding: 3em 4em 6em;
   text-align: left;
   width: 100%;
   z-index: 3;
@@ -26,4 +26,10 @@
     padding: 1em;
     resize: none;
     width: 100%;
+}
+
+@media (max-width: 600px) {
+  .AllergyInfo-content {
+      padding: 1em 2em 2em;
+  }
 }

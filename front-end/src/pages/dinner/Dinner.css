@@ -13,44 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Dinner-intro {
-  max-width: 260px;
-  padding: 5% 0;
-  text-shadow: 1px 1px 0px #070624;
-}
-
-.Dinner-intro .p-date {
-  font-size: 2em;
-}
-
-.Dinner-content {
-  color: #585858;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  max-width: 750px;
-  padding: 0 10% 10%;
-  text-align: left;
-  width: 100%;
-  z-index: 3;
-}
-
-.Dinner-content h3 {
-  font-size: 1.4em;
-}
-
-.Dinner-content p {
-  font-size: 1.2em;
-}
-
 .Button-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 4em;
   width: 100%;
 }
 
 .Button-container button {
   margin: 1.5em;
-  width: 200px;
   z-index: 3;
 }
 
@@ -63,7 +35,7 @@
 
 @media (max-width: 600px) {
   .Button-container {
-    display: initial;
+    display: inline-block;
   }
 
   .Button-container button {

@@ -2,7 +2,7 @@
   color: #585858;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   max-width: 750px;
-  padding: 0 10% 10%;
+  padding: 3em 4em 2em;
   text-align: left;
   width: 100%;
   z-index: 3;
@@ -16,14 +16,8 @@
   font-size: 1.2em;
 }
 
-.Button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 @media (max-width: 600px) {
-  .Button-container {
-    flex-direction: column;
+  .RSVP-content {
+      padding: 0 2em 2em;
   }
 }
