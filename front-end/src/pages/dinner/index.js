@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
+import Button from "../../components/button";
 import Header from "../../components/header";
 import Food from "../../components/food";
 
@@ -82,16 +83,17 @@ class Dinner extends Component {
 
     onBack = () => {
         const { course } = this.state;
-        const previousCourseIndex = COURSES.indexOf(course) - 1;
+        const courseIndex = COURSES.indexOf(course);
 
-        this.setState({
-            course: COURSES[previousCourseIndex],
-        });
+        if (courseIndex >= 1) {
+            this.setState({
+                course: COURSES[courseIndex - 1],
+            });
+        }
     }
 
     render() {
         const { course, dinnerChoices, names } = this.state;
-        const courseIndex = COURSES.indexOf(course);
 
         return (
             <div className="Dinner">
@@ -105,9 +107,17 @@ class Dinner extends Component {
                     dinnerChoices={dinnerChoices}
                     names={names}
                     selectFood={this.selectFood}
-                    onNext={this.onNext}
-                    onBack={courseIndex >= 1 ? this.onBack : () => {}}
                 />
+                <div className="Button-container">
+                    <Button
+                        title="← Back"
+                        onClick={this.onBack}
+                    />
+                    <Button
+                        title="Next →"
+                        onClick={this.onNext}
+                    />
+                </div>
             </div>
         );
     }

@@ -40,3 +40,34 @@
 .Dinner-content p {
   font-size: 1.2em;
 }
+
+.Button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Button-container button {
+  margin: 1.5em;
+  width: 200px;
+}
+
+.Button-container button:first-of-type {
+  justify-self: flex-start;
+}
+.Button-container button:last-of-type {
+  justify-self: flex-end;
+}
+
+@media (max-width: 600px) {
+  .Button-container {
+    display: initial;
+  }
+
+  .Button-container button {
+    display: block;
+    margin: 0.5em auto; 
+    width: 80%;
+  }
+}

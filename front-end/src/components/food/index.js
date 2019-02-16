@@ -1,8 +1,6 @@
 import React from "react";
 import uuid from "uuid";
 
-import Button from "../button";
-
 import "./Food.css";
 
 const OPTIONS = {
@@ -84,8 +82,6 @@ const Food = ({
     dinnerChoices,
     names,
     selectFood,
-    onNext,
-    onBack,
 }) => (
     <div className="Food-content">
         {names.map(name => (
@@ -98,16 +94,6 @@ const Food = ({
                 selectFood={selectFood}
             />
         ))}
-        <div className="Button-container">
-            <Button
-                title="Back"
-                onClick={onBack}
-            />
-            <Button
-                title="Next"
-                onClick={onNext}
-            />
-        </div>
     </div>
 );
 
