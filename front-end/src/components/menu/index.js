@@ -3,6 +3,19 @@ import { Link } from "react-router-dom";
 
 import "./Menu.css";
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+const HamburgerHelper = ({ onClick, menuIsOpen }) => {
+    return (
+        <div className={`Hamburger-helper${menuIsOpen ? "IsOpen" : ""}`}>
+            <button onClick={onClick} type="button" />
+            <span />
+            <span />
+            <span />
+        </div>
+    );
+};
+
 class Menu extends PureComponent {
     state = {
         menuIsOpen: false,
@@ -37,7 +50,10 @@ class Menu extends PureComponent {
             <div
                 className="Menu"
             >
-                <button type="button" onClick={this.toggleMenu}>Menu</button>
+                {isMobile
+                    ? <HamburgerHelper menuIsOpen={menuIsOpen} onClick={this.toggleMenu} />
+                    : <button type="button" onClick={this.toggleMenu}>Menu</button>
+                }
                 {menuIsOpen && (
                     <ul
                         className="Dropdown-menu"
