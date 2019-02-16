@@ -51,6 +51,7 @@
 .Button-container button {
   margin: 1.5em;
   width: 200px;
+  z-index: 3;
 }
 
 .Button-container button:first-of-type {
