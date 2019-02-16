@@ -13,7 +13,8 @@ const {
     guests: { 
         getGuestByID, 
         confirmAttendance, 
-        declineToAttend 
+        declineToAttend,
+        setDinnerChoices,
     },
 } = require("./controllers");
 
@@ -36,6 +37,7 @@ application.use(serve("static"));
 router.get("/guests/:key", getGuestByID);
 router.post("/guests/:key/confirm", confirmAttendance);
 router.post("/guests/:key/decline", declineToAttend);
+router.post("/guests/:id/dinner", setDinnerChoices);
 
 application.use(router.routes()).use(router.allowedMethods());
 

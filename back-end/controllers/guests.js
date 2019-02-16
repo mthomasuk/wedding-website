@@ -84,4 +84,28 @@ module.exports = {
             ctx.status = 500;
         }
     },
+    setDinnerChoices: async ctx => {
+        const { 
+            params: { id }, 
+            request: { body },
+        } = ctx;
+
+        try {
+            if (id && body) {
+                await knex.raw(
+                    `UPDATE guests
+                    SET food_choices = ?
+                    WHERE id = ?`,
+                    [body, id],
+                );
+                ctx.status = 200;
+            } else {
+                ctx.status = 403;
+                ctx.body = "Get lost ya filthy rat";
+            }
+        } catch (err) {
+            console.warn({ err });
+            ctx.status = 500;
+        }
+    },
 };
