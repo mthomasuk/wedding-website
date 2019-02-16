@@ -8,6 +8,11 @@ export default () => (
         <Switch>
             <Route
                 exact
+                path="/dinner/:key"
+                component={LandingPage}
+            />
+            <Route
+                exact
                 path="/:key"
                 component={LandingPage}
             />

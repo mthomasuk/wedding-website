@@ -4,21 +4,19 @@ import { withRouter } from "react-router";
 import Header from "../header";
 import Button from "../button";
 
-import "./Landing.css";
+import "./RSVP.css";
 
 const API_ROOT = "http://localhost:7778";
 
-class Landing extends Component {
+class RSVP extends Component {
     state = {
-        names: [],
+        hasConfirmed: false,
         hasDeclined: false,
+        names: [],
     };
 
     componentDidMount() {
         const {
-            history: {
-                push,
-            },
             match: {
                 params: { key },
             },
@@ -28,22 +26,8 @@ class Landing extends Component {
             fetch(`${API_ROOT}/guests/${key}`)
                 .then(response => response.json())
                 .then((json) => {
-                    const willBeAttending = json.reduce(u => u.confirmed_attendance);
-                    const names = json.map(u => u.name.split(" ")[0]);
-
-                    if (willBeAttending === true) {
-                        return push(`/dinner/${key}`);
-                    }
-
-                    if (willBeAttending === false) {
-                        return this.setState({
-                            hasDeclined: true,
-                            names,
-                        });
-                    }
-
-                    return this.setState({
-                        names,
+                    this.setState({
+                        names: json.map(u => u.name.split(" ")[0]),
                     });
                 });
         }
@@ -51,9 +35,6 @@ class Landing extends Component {
 
     confirmAttendance = () => {
         const {
-            history: {
-                push,
-            },
             match: {
                 params: { key },
             },
@@ -63,7 +44,9 @@ class Landing extends Component {
             fetch(`${API_ROOT}/guests/${key}/confirm`, { method: "POST" })
                 .then((response) => {
                     if (response.ok) {
-                        return push(`/dinner/${key}`);
+                        this.setState({
+                            hasConfirmed: true,
+                        });
                     }
                 });
         }
@@ -89,18 +72,20 @@ class Landing extends Component {
     }
 
     render() {
-        const { hasDeclined, names } = this.state;
+        const { hasConfirmed, hasDeclined, names } = this.state;
         const haveNames = Boolean(names.length);
         const nameString = haveNames ? names.join(" & ") : "";
 
+        const confirmed = hasConfirmed || hasDeclined;
+
         return (
-            <div className="Landing">
+            <div className="RSVP">
                 <Header
                     nameString={nameString}
                     backgroundColour="rgb(106, 140, 149)"
                 />
-                {haveNames && !hasDeclined && (
-                    <div className="Landing-content">
+                {haveNames && !confirmed && (
+                    <div className="RSVP-content">
                         <h3>We&apos;d love to see you at our wedding</h3>
                         <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
                     Can you make it?
@@ -117,9 +102,9 @@ class Landing extends Component {
                         </div>
                     </div>
                 )}
-                {haveNames && hasDeclined && (
-                    <div className="Landing-content">
-                        <p>Sorry to hear you can't make it! If anything changes, send us an email at&nbsp;
+                {haveNames && confirmed && (
+                    <div className="RSVP-content">
+                        <p>Sorry to hear that! If anything changes, send us an email at&nbsp;
                             <a href="mailto:rhiannon.f.jones@gmail.com">rhiannon.f.jones@gmail</a>
                         </p>
                     </div>
@@ -129,4 +114,4 @@ class Landing extends Component {
     }
 }
 
-export default withRouter(Landing);
+export default withRouter(RSVP);
