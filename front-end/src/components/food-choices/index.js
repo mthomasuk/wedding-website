@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 
 import Button from "../button";
 
-import "./RSVP.css";
+import "./Food.css";
 
-const RSVP = ({
+const Food = ({
     haveNames,
     hasDeclined,
     confirmAttendance,
@@ -12,7 +12,7 @@ const RSVP = ({
 }) => (
     <Fragment>
         {haveNames && !hasDeclined && (
-            <div className="RSVP-content">
+            <div className="Landing-content">
                 <h3>We&apos;d love to see you at our wedding</h3>
                 <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
                     Can you make it?
@@ -30,7 +30,7 @@ const RSVP = ({
             </div>
         )}
         {haveNames && hasDeclined && (
-            <div className="RSVP-content">
+            <div className="Landing-content">
                 <p>
                     Sorry to hear you can&apos;t make it!
                     If anything changes, send us an email at&nbsp;
@@ -41,4 +41,4 @@ const RSVP = ({
     </Fragment>
 );
 
-export default RSVP;
+export default Food;

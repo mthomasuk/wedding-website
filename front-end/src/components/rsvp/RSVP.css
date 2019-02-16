@@ -1,29 +1,4 @@
-.Landing {
-  align-items: center;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  font-family: "Big-Caslon", serif;
-  justify-content: flex-start;
-  position: relative;
-  height: 100%;
-  text-align: center;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.Landing-intro {
-  max-width: 260px;
-  padding: 5% 0;
-  text-shadow: 1px 1px 0px #070624;
-}
-
-.Landing-intro .p-date {
-  font-size: 2em;
-}
-
-.Landing-content {
+.RSVP-content {
   color: #585858;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   max-width: 750px;
@@ -33,11 +8,11 @@
   z-index: 3;
 }
 
-.Landing-content h3 {
+.RSVP-content h3 {
   font-size: 1.4em;
 }
 
-.Landing-content p {
+.RSVP-content p {
   font-size: 1.2em;
 }
 
