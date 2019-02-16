@@ -6,7 +6,8 @@ import "./Header.css";
 
 const Header = ({
     backgroundColour: backgroundColor,
-    nameString,
+    showOurFaces,
+    title,
 }) => (
     <Fragment>
         <Menu />
@@ -14,10 +15,10 @@ const Header = ({
         <div className="Slash-right" />
         <header className="Header-header" style={{ backgroundColor }}>
             <h1 className="Header-title">
-                {`Hi${nameString ? ` ${nameString}` : ""}!`}
+                {title}
             </h1>
         </header>
-        <div className="Header-background" />
+        {showOurFaces && <div className="Header-background" />}
         <div className="Slash-bottom" />
     </Fragment>
 );

@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
-import LandingPage from "./components/landing";
+import LandingPage from "./pages/landing";
+import DinnerPage from "./pages/dinner";
 
 export default () => (
     <Router>
@@ -9,7 +10,7 @@ export default () => (
             <Route
                 exact
                 path="/dinner/:key"
-                component={LandingPage}
+                component={DinnerPage}
             />
             <Route
                 exact

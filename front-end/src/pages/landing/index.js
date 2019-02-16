@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
-import Header from "../header";
-import Button from "../button";
+import Header from "../../components/header";
+import RSVP from "../../components/rsvp";
 
 import "./Landing.css";
 
@@ -96,34 +96,16 @@ class Landing extends Component {
         return (
             <div className="Landing">
                 <Header
-                    nameString={nameString}
                     backgroundColour="rgb(106, 140, 149)"
+                    showOurFaces
+                    title={`Hi${nameString ? ` ${nameString}` : ""}!`}
                 />
-                {haveNames && !hasDeclined && (
-                    <div className="Landing-content">
-                        <h3>We&apos;d love to see you at our wedding</h3>
-                        <p>It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
-                    Can you make it?
-                        </p>
-                        <div className="Button-container">
-                            <Button
-                                title={"Yes - I'll be there"}
-                                onClick={this.confirmAttendance}
-                            />
-                            <Button
-                                title={"No - I can't make it"}
-                                onClick={this.declineToAttend}
-                            />
-                        </div>
-                    </div>
-                )}
-                {haveNames && hasDeclined && (
-                    <div className="Landing-content">
-                        <p>Sorry to hear you can't make it! If anything changes, send us an email at&nbsp;
-                            <a href="mailto:rhiannon.f.jones@gmail.com">rhiannon.f.jones@gmail</a>
-                        </p>
-                    </div>
-                )}
+                <RSVP
+                    haveNames={haveNames}
+                    hasDeclined={hasDeclined}
+                    confirmAttendance={this.confirmAttendance}
+                    declineToAttend={this.declineToAttend}
+                />
             </div>
         );
     }
