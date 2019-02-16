@@ -34,7 +34,7 @@ class Dinner extends Component {
             fetch(`${API_ROOT}/guests/${key}`)
                 .then(response => response.json())
                 .then((json) => {
-                    const ids = json.map(({ id, name }) => ({ name, id }));
+                    const ids = json.map(({ id, name }) => ({ name: name.split(" ")[0], id }));
                     const names = json.map(u => u.name.split(" ")[0]);
 
                     const dinnerChoices = json.map(u => u.food_choices).filter(Boolean);
@@ -102,16 +102,14 @@ class Dinner extends Component {
 
         if (isCompleted) {
             if (nextCourseIndex === COURSES.length) {
-                await Promise.all(ids.map(({ id, name }) =>
-                    fetch(`${API_ROOT}/guests/${id}/dinner`, {
-                        body: JSON.stringify(dinnerChoices[name]),
-                        method: "POST",
-                    }).then((response) => {
-                        if (response.ok) {
-                            return push(`/dinner/${key}`);
-                        }
-                    }),
-                )).catch(err => console.warn({ err }));
+                await Promise.all(ids.map(({ id, name }) => fetch(`${API_ROOT}/guests/${id}/dinner`, {
+                    body: JSON.stringify(dinnerChoices[name]),
+                    method: "POST",
+                }).then((response) => {
+                    if (response.ok) {
+                        return push(`/dinner/${key}`);
+                    }
+                }))).catch(err => console.warn({ err }));
             } else {
                 this.setState({
                     course: COURSES[nextCourseIndex],
