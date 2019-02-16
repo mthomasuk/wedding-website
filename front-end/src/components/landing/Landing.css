@@ -13,41 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Landing-header,
-.Landing-background {
-  padding: 75px;
-  width: 100%;
-}
-
-.Landing-header {
-  align-items: center;
-  justify-content: flex-start;
-  background-color: rgb(106, 140, 149);
-  color: #fff;
-  display: flex;
-  font-family: "Amatic-regular";
-  font-size: 2.2em;
-  min-height: 360px;
-  max-height: 420px;
-}
-
-.Landing-background {
-  background-image: url("/images/me_and_rheezy.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 100%;
-  height: 66%;
-  position: absolute;
-  z-index: 2;
-}
-
-.Landing-header h1 {
-  font-size: 3em;
-  line-height: 1;
-  max-width: 600px;
-  text-align: left;
-}
-
 .Landing-intro {
   max-width: 260px;
   padding: 5% 0;
@@ -56,36 +21,6 @@
 
 .Landing-intro .p-date {
   font-size: 2em;
-}
-
-.Slash-left,
-.Slash-right,
-.Slash-bottom {
-  background-color: #fff;
-  position: absolute;
-  height: 600px;
-  width: 600px;
-  z-index: 1;
-}
-
-.Slash-left {
-  transform: translate3d(0, 0, 0) rotate(-52deg);
-  top: -400px;
-  left: -525px;
-}
-
-.Slash-right {
-  transform: translate3d(0, 0, 0) rotate(30deg);
-  top: -370px;
-  right: -400px;
-  width: 800px;
-}
-
-.Slash-bottom {
-  bottom: -270px;
-  transform: rotate(-87deg);
-  height: 1000px;
-  width: 155px;
 }
 
 .Landing-content {
@@ -112,59 +47,8 @@
   justify-content: center;
 }
 
-@media (max-width: 690px) {
-  .Landing-header h1 {
-    font-size: 2em;
-    max-width: 350px;
-    margin: 0;
-  }
-
-  .Landing-background {
-    height: 55%;
-  }
-
-  .Slash-bottom {
-    bottom: -210px;
-  }
-}
-
 @media (max-width: 600px) {
-  .Landing-header {
-    min-height: 300px;
-    padding: 15% 15% 20%;
-  }
-
-  .Landing-header h1 {
-    font-size: 1.8em;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .Landing-background {
-    background-position: center;
-    margin-bottom: -25px;
-    margin-top: -135px;
-    padding: 190px 0;
-    position: relative;
-  }
-
-  .Slash-left,
-  .Slash-right {
-    display: none;
-  }
-
-  .Slash-bottom {
-    top: -150px;
-  }
-
   .Button-container {
     flex-direction: column;
   }
 }
-
-@media (max-width: 350px) {
-  .Landing-header h1 {
-    font-size: 1.3em;
-  }
-}
-

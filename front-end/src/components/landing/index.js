@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
-import Menu from "../menu";
+import Header from "../header";
 import Button from "../button";
 
 import "./Landing.css";
@@ -80,16 +80,7 @@ class Landing extends Component {
 
         return (
             <div className="Landing">
-                <Menu />
-                <div className="Slash-left" />
-                <div className="Slash-right" />
-                <header className="Landing-header">
-                    <h1 className="Landing-title">
-                        {`Hi${nameString ? ` ${nameString}` : ""}!`}
-                    </h1>
-                </header>
-                <div className="Landing-background" />
-                <div className="Slash-bottom" />
+                <Header nameString={nameString} />
                 {haveNames && !confirmed && (
                     <div className="Landing-content">
                         <h3>We&apos;d love to see you at our wedding</h3>
