@@ -1,0 +1,47 @@
+.Food-content {
+  color: #585858;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  max-width: 750px;
+  padding: 0 10% 10%;
+  text-align: left;
+  width: 100%;
+  z-index: 3;
+}
+
+.Food-content h3 {
+  font-size: 1.4em;
+}
+
+.Food-content p {
+  font-size: 1.2em;
+}
+
+.Food-choice {
+  margin: 2em 0;
+}
+
+.Food-choice h5 {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.Food-label {
+  display: block;
+  margin: 0.5em 0;
+}
+
+.Food-radio {
+  margin-right: 0.75em;
+}
+
+.Button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .Button-container {
+    flex-direction: column;
+  }
+}
