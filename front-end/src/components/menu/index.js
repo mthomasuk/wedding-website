@@ -39,9 +39,9 @@ class Menu extends PureComponent {
             >
                 <button type="button" onClick={this.toggleMenu}>Menu</button>
                 {menuIsOpen && (
-                    <ul 
-                        className="Dropdown-menu" 
-                        onClick={this.toggleMenu} 
+                    <ul
+                        className="Dropdown-menu"
+                        onClick={this.toggleMenu}
                         ref={node => this.node = node}
                     >
                         <li>Menu</li>
