@@ -1,0 +1,14 @@
+.Songs {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Big-Caslon", serif;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  text-align: center;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
