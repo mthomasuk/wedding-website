@@ -1,0 +1,50 @@
+.Complete {
+	align-items: center;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Big-Caslon", serif;
+	justify-content: flex-start;
+	position: relative;
+	height: 100%;
+	text-align: center;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.Complete-contents {
+	display: block;
+	max-width: 450px;
+	padding: 5.5em 0;
+	width: 55%;
+	z-index: 1;
+}
+
+.Complete a {
+	background-color: #fff;
+	border: solid #737373 3px;
+	border-radius: 5px;
+	color: #737373;
+	cursor: pointer;
+	display: block;
+  	font-family: "Amatic-regular", serif;
+	font-size: 1.8em;
+	margin: 7px 0;
+	padding: 7px;
+	text-decoration: none;
+	transition: all 0.15s ease-in-out;
+	width: 100%;
+}
+
+.Complete a:hover {
+	border-color: #000;
+	color: #000;
+}
+
+@media (max-width: 600px) {
+	.Complete-contents {
+		padding: 1em 0 3em;
+		width: auto;
+	}
+}
