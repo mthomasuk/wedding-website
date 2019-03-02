@@ -5,16 +5,14 @@ import "./Menu.css";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-const HamburgerHelper = ({ onClick, menuIsOpen }) => {
-    return (
-        <div className={`Hamburger-helper${menuIsOpen ? "IsOpen" : ""}`}>
-            <button onClick={onClick} type="button" />
-            <span />
-            <span />
-            <span />
-        </div>
-    );
-};
+const HamburgerHelper = ({ onClick, menuIsOpen }) => (
+    <div className={`Hamburger-helper${menuIsOpen ? "IsOpen" : ""}`}>
+        <button onClick={onClick} type="button" />
+        <span />
+        <span />
+        <span />
+    </div>
+);
 
 class Menu extends PureComponent {
     state = {

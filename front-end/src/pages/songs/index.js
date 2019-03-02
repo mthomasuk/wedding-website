@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 
 import Header from "../../components/header";
 import Button from "../../components/button";
-import AllergyInfo from "../../components/allergy";
+import SongChoices from "../../components/song";
 
 import "./Songs.css";
 
@@ -12,8 +12,8 @@ const API_ROOT = "http://localhost:7778";
 class Songs extends Component {
     state = {
         ids: [],
-        songChoices: {},
         names: [],
+        songChoices: {},
     };
 
     componentDidMount() {
@@ -52,14 +52,14 @@ class Songs extends Component {
         }
     }
 
-    selectSongs = ({ course, name, value }) => {
+    selectSong = ({ artist, name, title }) => {
         const { songChoices: initialSongChoices } = this.state;
 
         const songChoices = {
             ...initialSongChoices,
             [name]: {
-                ...initialSongChoices[name],
-                [course]: value,
+                artist,
+                title,
             },
         };
 
@@ -111,6 +111,8 @@ class Songs extends Component {
     }
 
     render() {
+        const { names, songChoices } = this.state;
+
         return (
             <div className="Songs">
                 <Header
@@ -118,7 +120,11 @@ class Songs extends Component {
                     showOurFaces
                     title="Time to Choose<br/>Your Tune"
                 />
-                <AllergyInfo onChange={this.onChange} />
+                <SongChoices
+                    names={names}
+                    selectSong={this.selectSong}
+                    songChoices={songChoices}
+                />
                 <div className="Button-container">
                     <Button
                         title="← Back"
