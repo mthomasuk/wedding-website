@@ -12,24 +12,7 @@ const API_ROOT = "http://localhost:7778";
 class Allergies extends Component {
     state = {
         allergies: null,
-        ids: [],
     };
-
-    componentDidMount() {
-        const {
-            match: {
-                params: { key },
-            },
-        } = this.props;
-
-        if (key) {
-            fetch(`${API_ROOT}/guests/${key}`)
-                .then(response => response.json())
-                .then(json => this.setState({
-                    ids: json.map(u => u.id),
-                }));
-        }
-    }
 
     onChange = (e) => {
         if (e.target && e.target.value) {
@@ -69,19 +52,18 @@ class Allergies extends Component {
 
         const {
             allergies,
-            ids,
         } = this.state;
 
-        const body = JSON.stringify(encodeURIComponent(allergies));
+        const body = JSON.stringify(allergies);
 
-        await Promise.all(ids.map(id => fetch(`${API_ROOT}/guests/${id}/allergy`, {
+        await fetch(`${API_ROOT}/guests/${key}/allergy`, {
             body,
             method: "POST",
         }).then((response) => {
             if (response.ok) {
                 return push(`/songs/${key}`);
             }
-        }))).catch(err => console.warn({ err }));
+        }).catch(err => console.warn({ err }));
     }
 
     render() {

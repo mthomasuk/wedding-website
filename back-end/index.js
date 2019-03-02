@@ -16,6 +16,7 @@ const {
         confirmAttendance, 
         declineToAttend,
         setDinnerChoices,
+        setSongChoices,
     },
 } = require("./controllers");
 
@@ -39,7 +40,8 @@ router.get("/guests/:key", getGuestByID);
 router.post("/guests/:key/confirm", confirmAttendance);
 router.post("/guests/:key/decline", declineToAttend);
 router.post("/guests/:id/dinner", setDinnerChoices);
-router.post("/guests/:id/allergy", addAllergyInfo);
+router.post("/guests/:key/allergy", addAllergyInfo);
+router.post("/guests/:id/songs", setSongChoices);
 
 application.use(router.routes()).use(router.allowedMethods());
 

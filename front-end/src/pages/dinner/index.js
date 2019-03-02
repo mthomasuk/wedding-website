@@ -137,8 +137,8 @@ class Dinner extends Component {
             return this.setState({
                 course: COURSES[courseIndex - 1],
             });
-        } 
-        
+        }
+
         return push(`/${key}`);
     }
 

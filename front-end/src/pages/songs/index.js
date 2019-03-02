@@ -11,12 +11,16 @@ const API_ROOT = "http://localhost:7778";
 
 class Songs extends Component {
     state = {
-        allergies: null,
         ids: [],
+        songChoices: {},
+        names: [],
     };
 
     componentDidMount() {
         const {
+            history: {
+                push,
+            },
             match: {
                 params: { key },
             },
@@ -25,34 +29,43 @@ class Songs extends Component {
         if (key) {
             fetch(`${API_ROOT}/guests/${key}`)
                 .then(response => response.json())
-                .then(json => this.setState({
-                    ids: json.map(u => u.id),
-                }));
+                .then((json) => {
+                    const ids = json.map(({ id, name }) => ({ name: name.split(" ")[0], id }));
+                    const names = json.map(u => u.name.split(" ")[0]);
+
+                    const songChoices = json.map(u => u.song_choices).filter(Boolean);
+                    const songKeys = Object.keys(songChoices);
+
+                    const isCompleted = songKeys.length === names.length && songKeys
+                        .sort()
+                        .every((value, index) => value === names.sort()[index]);
+
+                    if (isCompleted) {
+                        return push(`/${key}`);
+                    }
+
+                    return this.setState({
+                        ids,
+                        names,
+                    });
+                });
         }
     }
 
-    onChange = (e) => {
-        if (e.target && e.target.value) {
-            const { target: { value: allergies } } = e;
-            this.setState({
-                allergies,
-            });
-        }
-    }
+    selectSongs = ({ course, name, value }) => {
+        const { songChoices: initialSongChoices } = this.state;
 
-    onBack = () => {
-        const {
-            history: {
-                push,
+        const songChoices = {
+            ...initialSongChoices,
+            [name]: {
+                ...initialSongChoices[name],
+                [course]: value,
             },
-            match: {
-                params: {
-                    key,
-                },
-            },
-        } = this.props;
+        };
 
-        return push(`/dinner/${key}`);
+        this.setState({
+            songChoices,
+        });
     }
 
     onNext = async () => {
@@ -68,20 +81,33 @@ class Songs extends Component {
         } = this.props;
 
         const {
-            allergies,
+            songChoices,
             ids,
         } = this.state;
 
-        const body = JSON.stringify(encodeURIComponent(allergies));
-
-        await Promise.all(ids.map(id => fetch(`${API_ROOT}/guests/${id}/allergy`, {
-            body,
+        await Promise.all(ids.map(({ id, name }) => fetch(`${API_ROOT}/guests/${id}/songs`, {
+            body: JSON.stringify(songChoices[name]),
             method: "POST",
         }).then((response) => {
             if (response.ok) {
-                return push(`/songs/${key}`);
+                return push(`/${key}`);
             }
         }))).catch(err => console.warn({ err }));
+    }
+
+    onBack = () => {
+        const {
+            history: {
+                push,
+            },
+            match: {
+                params: {
+                    key,
+                },
+            },
+        } = this.props;
+
+        return push(`/allergies/${key}`);
     }
 
     render() {

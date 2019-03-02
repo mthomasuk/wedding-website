@@ -34,17 +34,25 @@ module.exports = {
     // POST
     addAllergyInfo: async ctx => {
         const { 
-            params: { id }, 
+            params: { key }, 
             request: { body },
         } = ctx;
 
         try {
-            if (id && body) {
+            if (key && body) {
+                const { rows: famRows } = await knex.raw(
+                    `SELECT family_id FROM guests 
+                    WHERE key = ?`,
+                    [ctx.params.key],
+                );
+
+                const { family_id } = famRows[0];
+
                 await knex.raw(
-                    `UPDATE guests
+                    `UPDATE guests 
                     SET allergy_info = ?
-                    WHERE id = ?`,
-                    [body, id],
+                    WHERE family_id = ?`,
+                    [body, family_id],
                 );
                 ctx.status = 200;
             } else {
@@ -121,6 +129,30 @@ module.exports = {
                 await knex.raw(
                     `UPDATE guests
                     SET food_choices = ?
+                    WHERE id = ?`,
+                    [body, id],
+                );
+                ctx.status = 200;
+            } else {
+                ctx.status = 403;
+                ctx.body = "Get lost ya filthy rat";
+            }
+        } catch (err) {
+            console.warn({ err });
+            ctx.status = 500;
+        }
+    },
+    setSongChoices: async ctx => {
+        const { 
+            params: { id }, 
+            request: { body },
+        } = ctx;
+
+        try {
+            if (id && body) {
+                await knex.raw(
+                    `UPDATE guests
+                    SET song_choices = ?
                     WHERE id = ?`,
                     [body, id],
                 );
