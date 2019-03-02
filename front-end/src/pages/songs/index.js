@@ -5,6 +5,8 @@ import Header from "../../components/header";
 import Button from "../../components/button";
 import SongChoices from "../../components/song";
 
+import SongInfo from "../../components/song/SongInfo";
+
 import "./Songs.css";
 
 const API_ROOT = "http://localhost:7778";
@@ -52,14 +54,14 @@ class Songs extends Component {
         }
     }
 
-    selectSong = ({ artist, name, title }) => {
+    selectSong = (input, { name }) => {
         const { songChoices: initialSongChoices } = this.state;
 
         const songChoices = {
             ...initialSongChoices,
             [name]: {
-                artist,
-                title,
+                ...initialSongChoices[name],
+                ...input,
             },
         };
 
@@ -90,7 +92,7 @@ class Songs extends Component {
             method: "POST",
         }).then((response) => {
             if (response.ok) {
-                return push(`/${key}`);
+                return push(`/complete/${key}`);
             }
         }))).catch(err => console.warn({ err }));
     }
@@ -120,6 +122,7 @@ class Songs extends Component {
                     showOurFaces
                     title="Time to Choose<br/>Your Tune"
                 />
+                <SongInfo />
                 <SongChoices
                     names={names}
                     selectSong={this.selectSong}

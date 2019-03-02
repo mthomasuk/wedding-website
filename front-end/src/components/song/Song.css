@@ -1,9 +1,50 @@
+.SongInfo-content {
+	color: #585858;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	max-width: 750px;
+	padding: 3.5em 4em 0;
+	text-align: left;
+	width: 100%;
+	z-index: 3;
+}
+
+.SongInfo-content h3 {
+  	font-size: 1.4em;
+}
+
+.SongInfo-content p {
+  	font-size: 1.2em;
+}
+
 .Song {
-  color: #585858;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  max-width: 750px;
-  padding: 3em 4em 6em;
-  text-align: left;
-  width: 100%;
-  z-index: 3;
+	color: #585858;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	max-width: 750px;
+	padding: 1em 4em 6em;
+	text-align: left;
+	width: 100%;
+	z-index: 3;
+}
+
+.SongInputWrapper {
+	margin-bottom: 1em;
+}
+
+.SongInput {
+	border: 1px solid #999;
+	border-radius: 4px;
+	margin-right: 1em;
+	padding: 10px 8px;
+	width: 220px;
+}
+
+@media (max-width: 600px) {
+	.Song {
+		padding-bottom: 2em;
+	}
+
+	.SongInput {
+		margin-bottom: 1em;
+		width: 100%;
+	}
 }
