@@ -14,6 +14,7 @@ CREATE TABLE guests (
     confirmed_attendance boolean,
     type_of_guest text DEFAULT 'ceremony'::text NOT NULL,
     food_choices json,
+    allergy_info text,
     family_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL

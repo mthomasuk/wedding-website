@@ -32,7 +32,12 @@ class Allergies extends Component {
     }
 
     onChange = (e) => {
-        console.log(e.target.value);
+        if (e.target && e.target.value) {
+            const { target: { value: allergies } } = e;
+            this.setState({
+                allergies,
+            });
+        }
     }
 
     onBack = () => {
@@ -50,10 +55,36 @@ class Allergies extends Component {
         return push(`/dinner/${key}`);
     }
 
-    render() {
-        const { ids } = this.state;
-        console.log({ ids });
+    onNext = async () => {
+        const {
+            history: {
+                push,
+            },
+            match: {
+                params: {
+                    key,
+                },
+            },
+        } = this.props;
 
+        const {
+            allergies,
+            ids,
+        } = this.state;
+
+        const body = JSON.stringify(encodeURIComponent(allergies));
+
+        await Promise.all(ids.map(id => fetch(`${API_ROOT}/guests/${id}/allergy`, {
+            body,
+            method: "POST",
+        }).then((response) => {
+            if (response.ok) {
+                return push(`/songs/${key}`);
+            }
+        }))).catch(err => console.warn({ err }));
+    }
+
+    render() {
         return (
             <div className="Allergies">
                 <Header
@@ -69,7 +100,7 @@ class Allergies extends Component {
                     />
                     <Button
                         title="Next →"
-                        onClick={() => {}}
+                        onClick={this.onNext}
                     />
                 </div>
             </div>

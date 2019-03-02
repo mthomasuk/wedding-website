@@ -3,6 +3,7 @@ const {
 } = require("../database");
 
 module.exports = {
+    // GET
     getGuestByID: async ctx => {
         try {
             if (ctx.params.key) {
@@ -21,6 +22,31 @@ module.exports = {
 
                 ctx.status = 200;
                 ctx.body = rows;
+            } else {
+                ctx.status = 403;
+                ctx.body = "Get lost ya filthy rat";
+            }
+        } catch (err) {
+            console.warn({ err });
+            ctx.status = 500;
+        }
+    },
+    // POST
+    addAllergyInfo: async ctx => {
+        const { 
+            params: { id }, 
+            request: { body },
+        } = ctx;
+
+        try {
+            if (id && body) {
+                await knex.raw(
+                    `UPDATE guests
+                    SET allergy_info = ?
+                    WHERE id = ?`,
+                    [body, id],
+                );
+                ctx.status = 200;
             } else {
                 ctx.status = 403;
                 ctx.body = "Get lost ya filthy rat";

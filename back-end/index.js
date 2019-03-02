@@ -11,7 +11,8 @@ const { HOST, PORT } = require("./config");
 
 const {
     guests: { 
-        getGuestByID, 
+        getGuestByID,
+        addAllergyInfo,
         confirmAttendance, 
         declineToAttend,
         setDinnerChoices,
@@ -38,6 +39,7 @@ router.get("/guests/:key", getGuestByID);
 router.post("/guests/:key/confirm", confirmAttendance);
 router.post("/guests/:key/decline", declineToAttend);
 router.post("/guests/:id/dinner", setDinnerChoices);
+router.post("/guests/:id/allergy", addAllergyInfo);
 
 application.use(router.routes()).use(router.allowedMethods());
 
