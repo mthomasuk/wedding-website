@@ -3,9 +3,10 @@ import React from "react";
 import "./Gift.css";
 
 const AGift = ({
-    id, title, subtitle, link, value,
+    id, title, subtitle, link, value, img_src,
 }) => (
     <div key={id} className="Gift">
+        <img src={`/images/${img_src}`} alt={title} />
         <div className="Gift-Title">{title}</div>
         <div className="Gift-SubTitle">{subtitle}</div>
         <div className="Gift-Link">

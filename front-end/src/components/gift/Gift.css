@@ -36,11 +36,16 @@ p.Cultural-Appropriation {
 .Gift {
   border: 1px solid #b9b9b9;
   display: inline-block;
-  height: 205px;
   margin: 5px;
+  padding-bottom: 44px;
   position: relative;
   text-align: center;
   width: 205px;
+}
+
+.Gift img {
+  height: auto;
+  width: 100%;
 }
 
 .Gift-Title {

@@ -31,6 +31,7 @@ CREATE TABLE gifts (
     value int,
     quantity float,
     link text,
+    img_src text,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -50,5 +51,5 @@ ALTER TABLE ONLY guests
 ALTER TABLE ONLY family
     ADD CONSTRAINT family_gift_id_fkey FOREIGN KEY (gift_id) REFERENCES gift(id);
 
--- COPY gifts(title, subtitle, category, value, quantity, link)
--- FROM '/Users/markthomas/Projects/wedding-website/gifts.csv' DELIMITER ',' CSV HEADER;
+-- COPY gifts(title, subtitle, category, value, quantity, link, img_src)
+-- FROM '/Users/markthomas/Projects/wedding-website/gifts.csv' DELIMITER ',' CSV;
