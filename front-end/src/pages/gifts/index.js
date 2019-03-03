@@ -7,8 +7,23 @@ import GiftInfo from "../../components/gift/GiftInfo";
 
 import "./Gifts.css";
 
+const API_ROOT = "http://localhost:7778";
+
 class Gifts extends Component {
+    state = {
+        gifts: [],
+    }
+
+    componentDidMount() {
+        fetch(`${API_ROOT}/gifts`)
+            .then(response => response.json())
+            .then(gifts => this.setState({
+                gifts,
+            }));
+    }
+
     render() {
+        const { gifts } = this.state;
         return (
             <div className="Gifts">
                 <Header
@@ -16,7 +31,7 @@ class Gifts extends Component {
                     title="Gift List 🇯🇵"
                 />
                 <GiftInfo />
-                <GiftsList />
+                {gifts.length ? <GiftsList gifts={gifts} /> : null}
             </div>
         );
     }

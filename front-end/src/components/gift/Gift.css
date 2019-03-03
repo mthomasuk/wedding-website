@@ -1,7 +1,8 @@
-.GiftInfo-content {
+.GiftInfo-content,
+.GiftList-content {
   color: #585858;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  max-width: 750px;
+  max-width: 1000px;
   padding: 2em 4em 0.5em;
   text-align: left;
   width: 100%;
@@ -9,13 +10,10 @@
 }
 
 .GiftList-content {
-  color: #585858;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  max-width: 750px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
   padding: 0.5em 4em 2em;
-  text-align: left;
-  width: 100%;
-  z-index: 3;
 }
 
 .GiftInfo-content p,
@@ -35,8 +33,54 @@ p.Cultural-Appropriation {
   font-size: 1.75em;
 }
 
+.Gift {
+  border: 1px solid #b9b9b9;
+  display: inline-block;
+  height: 205px;
+  margin: 5px;
+  position: relative;
+  text-align: center;
+  width: 205px;
+}
+
+.Gift-Title {
+  font-family: "Amatic-regular", serif;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.Gift-SubTitle {
+  font-size: 0.9em;
+  margin: 5px 8px;
+}
+
+.Gift-Link {
+  background-color: rgb(96, 139, 148);
+  border-top: 1px solid #b9b9b9;
+  padding: 7px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Gift-Link a {
+  color: #fff;
+  display: block;
+}
+
 @media (max-width: 600px) {
   .GiftInfo-content {
-      padding: 1em 2em 2em;
+    padding: 1em 2em 1em;
   }
+
+  .GiftList-content {
+    display: block;
+    padding: 0 2em 2em;
+  }
+
+  .Gift {
+    width: 100%;
+  } 
 }

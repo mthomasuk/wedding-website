@@ -1,13 +1,14 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE family (
-    id uuid NOT NULL,
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
     gift_id uuid,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
 
 CREATE TABLE guests (
-    id uuid NOT NULL,
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
     key text NOT NULL,
     name text NOT NULL,
     address text,
@@ -23,11 +24,12 @@ CREATE TABLE guests (
 );
 
 CREATE TABLE gifts (
-    id uuid NOT NULL,
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
     title text,
     subtitle text,
     category text,
     value int,
+    quantity float,
     link text,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
@@ -47,3 +49,6 @@ ALTER TABLE ONLY guests
 
 ALTER TABLE ONLY family
     ADD CONSTRAINT family_gift_id_fkey FOREIGN KEY (gift_id) REFERENCES gift(id);
+
+-- COPY gifts(title, subtitle, category, value, quantity, link)
+-- FROM '/Users/markthomas/Projects/wedding-website/gifts.csv' DELIMITER ',' CSV HEADER;

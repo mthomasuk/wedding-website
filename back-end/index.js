@@ -10,6 +10,9 @@ const cors = require("@koa/cors");
 const { HOST, PORT } = require("./config");
 
 const {
+    gifts: {
+        getGifts,
+    },
     guests: { 
         getGuestByID,
         addAllergyInfo,
@@ -36,7 +39,9 @@ application.use(compress());
 application.use(body({ multipart: false }));
 application.use(serve("static"));
 
+router.get("/gifts", getGifts);
 router.get("/guests/:key", getGuestByID);
+
 router.post("/guests/:key/confirm", confirmAttendance);
 router.post("/guests/:key/decline", declineToAttend);
 router.post("/guests/:id/dinner", setDinnerChoices);
