@@ -1,6 +1,7 @@
 
 CREATE TABLE family (
     id uuid NOT NULL,
+    gift_id uuid,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -21,12 +22,28 @@ CREATE TABLE guests (
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
 
+CREATE TABLE gifts (
+    id uuid NOT NULL,
+    title text,
+    subtitle text,
+    category text,
+    value int,
+    link text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
 ALTER TABLE ONLY family
     ADD CONSTRAINT family_pkey PRIMARY KEY (id);
 
 ALTER TABLE ONLY guests
     ADD CONSTRAINT guests_pkey PRIMARY KEY (id);
 
+ALTER TABLE ONLY gifts
+    ADD CONSTRAINT gifts_pkey PRIMARY KEY (id);
+
 ALTER TABLE ONLY guests
     ADD CONSTRAINT guests_family_id_fkey FOREIGN KEY (family_id) REFERENCES family(id);
 
+ALTER TABLE ONLY family
+    ADD CONSTRAINT family_gift_id_fkey FOREIGN KEY (gift_id) REFERENCES gift(id);
