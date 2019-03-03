@@ -1,0 +1,39 @@
+.GiftInfo-content {
+  color: #585858;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  max-width: 750px;
+  padding: 2em 4em 0.5em;
+  text-align: left;
+  width: 100%;
+  z-index: 3;
+}
+
+.GiftList-content {
+  color: #585858;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  max-width: 750px;
+  padding: 0.5em 4em 2em;
+  text-align: left;
+  width: 100%;
+  z-index: 3;
+}
+
+.GiftInfo-content p,
+.GiftList-content p {
+  font-size: 1.2em;
+}
+
+.GiftInfo-content a,
+.GiftList-content a {
+  color: rgb(96, 139, 148);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+
+@media (max-width: 600px) {
+  .GiftInfo-content {
+      padding: 1em 2em 2em;
+  }
+}

@@ -6,6 +6,7 @@ import DinnerPage from "./pages/dinner";
 import AllergyPage from "./pages/allergies";
 import SongPage from "./pages/songs";
 import CompletePage from "./pages/complete";
+import GiftsPage from "./pages/gifts";
 
 export default () => (
     <Router>
@@ -24,6 +25,11 @@ export default () => (
                 exact
                 path="/dinner/:key"
                 component={DinnerPage}
+            />
+            <Route
+                exact
+                path="/gifts/:key"
+                component={GiftsPage}
             />
             <Route
                 exact

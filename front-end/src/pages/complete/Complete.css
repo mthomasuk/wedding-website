@@ -30,7 +30,8 @@
 	display: block;
   	font-family: "Amatic-regular", serif;
 	font-size: 1.8em;
-	margin: 7px 0;
+	font-weight: 600;
+	margin-bottom: 18px;
 	padding: 7px;
 	text-decoration: none;
 	transition: all 0.15s ease-in-out;
