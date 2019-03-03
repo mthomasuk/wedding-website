@@ -30,7 +30,10 @@
   text-decoration: none;
 }
 
-
+p.Cultural-Appropriation {
+  font-family: "Amatic-regular", serif;
+  font-size: 1.75em;
+}
 
 @media (max-width: 600px) {
   .GiftInfo-content {

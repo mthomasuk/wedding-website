@@ -17,6 +17,7 @@ const GiftInfo = () => (
                 Donate through PayPal instead
             </a>.
         </p>
+        <p className="Cultural-Appropriation">Arigato gozeimasu</p>
     </div>
 );
 
