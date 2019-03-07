@@ -9,7 +9,7 @@ import UnknownGuest from "../../components/unknown-guest";
 
 import "./Landing.css";
 
-const API_ROOT = "http://localhost:7778";
+const API_ROOT = "/api";
 
 class Landing extends Component {
     state = {

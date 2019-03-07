@@ -7,7 +7,7 @@ import GiftInfo from "../../components/gift/GiftInfo";
 
 import "./Gifts.css";
 
-const API_ROOT = "http://localhost:7778";
+const API_ROOT = "/api";
 
 class Gifts extends Component {
     state = {

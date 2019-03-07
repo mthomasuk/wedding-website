@@ -7,7 +7,7 @@ import Food from "../../components/food";
 
 import "./Dinner.css";
 
-const API_ROOT = "http://localhost:7778";
+const API_ROOT = "/api";
 const COURSES = ["Starter", "Main", "Dessert"];
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

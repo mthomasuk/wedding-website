@@ -39,6 +39,8 @@ application.use(compress());
 application.use(body({ multipart: false }));
 application.use(serve("static"));
 
+router.prefix("/api");
+
 router.get("/gifts", getGifts);
 router.get("/guests/:key", getGuestByID);
 

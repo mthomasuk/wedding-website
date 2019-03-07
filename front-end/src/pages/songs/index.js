@@ -9,7 +9,7 @@ import SongInfo from "../../components/song/SongInfo";
 
 import "./Songs.css";
 
-const API_ROOT = "http://localhost:7778";
+const API_ROOT = "/api";
 
 class Songs extends Component {
     state = {

@@ -7,7 +7,7 @@ import AllergyInfo from "../../components/allergy";
 
 import "./Allergies.css";
 
-const API_ROOT = "http://localhost:7778";
+const API_ROOT = "/api";
 
 class Allergies extends Component {
     state = {
