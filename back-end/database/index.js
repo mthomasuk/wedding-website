@@ -1,5 +1,5 @@
 const {
-    PG: { PG_HOST, PG_DB, PG_PASSWORD, PG_USER },
+    PG: { PG_HOST, PG_DB, PG_PASSWORD, PG_PORT, PG_USER },
 } = require("../config");
 
 class Database {
@@ -12,6 +12,7 @@ class Database {
                     user: PG_USER,
                     password: PG_PASSWORD,
                     database: PG_DB,
+                    port: PG_PORT,
                 },
                 pool: {
                     min: 0,
