@@ -17,7 +17,8 @@
 }
 
 .Form-Container {
-  padding: 0em 4em 4em;
+  padding: 1em 4em 4em;
+  z-index: 1;
 }
 
 .Form-Container .Input {
@@ -28,7 +29,6 @@
   font-size: 1.8em;
   margin: 7px 0;
   padding: 7px;
-  z-index: 1;
 }
 
 @media (max-width: 600px) {
