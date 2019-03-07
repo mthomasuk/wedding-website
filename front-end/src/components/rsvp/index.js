@@ -5,13 +5,12 @@ import Button from "../button";
 import "./RSVP.css";
 
 const RSVP = ({
-    haveNames,
     hasDeclined,
     confirmAttendance,
     declineToAttend,
 }) => (
     <Fragment>
-        {haveNames && !hasDeclined && (
+        {!hasDeclined && (
             <Fragment>
                 <div className="RSVP-content">
                     <h3>We&apos;d love to see you at our wedding</h3>
@@ -31,7 +30,7 @@ const RSVP = ({
                 </div>
             </Fragment>
         )}
-        {haveNames && hasDeclined && (
+        {hasDeclined && (
             <div className="RSVP-content">
                 <p>
                     Sorry to hear you can&apos;t make it!

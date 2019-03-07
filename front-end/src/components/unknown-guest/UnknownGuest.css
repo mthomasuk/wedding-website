@@ -1,0 +1,38 @@
+.UnknownGuest-content {
+  color: #585858;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  max-width: 750px;
+  padding: 3em 4em 1em;
+  text-align: left;
+  width: 100%;
+  z-index: 3;
+}
+
+.UnknownGuest-content h3 {
+  font-size: 1.4em;
+}
+
+.UnknownGuest-content p {
+  font-size: 1.2em;
+}
+
+.Form-Container {
+  padding: 0em 4em 4em;
+}
+
+.Form-Container .Input {
+  border: solid #737373 3px;
+  border-radius: 5px;
+  width: 100%;
+  font-family: "Amatic-regular", serif;
+  font-size: 1.8em;
+  margin: 7px 0;
+  padding: 7px;
+}
+
+@media (max-width: 600px) {
+  .UnknownGuest-content,
+  .Form-Container {
+      padding: 1em 3em;
+  }
+}

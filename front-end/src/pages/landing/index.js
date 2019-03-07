@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 
 import Header from "../../components/header";
+import ErrorIndicator from "../../components/error";
+
 import RSVP from "../../components/rsvp";
+import UnknownGuest from "../../components/unknown-guest";
 
 import "./Landing.css";
 
@@ -10,6 +13,7 @@ const API_ROOT = "http://localhost:7778";
 
 class Landing extends Component {
     state = {
+        errorMessage: null,
         names: [],
         hasDeclined: false,
     };
@@ -26,7 +30,12 @@ class Landing extends Component {
 
         if (key) {
             fetch(`${API_ROOT}/guests/${key}`)
-                .then(response => response.json())
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error("That code didn't work - try another!");
+                })
                 .then((json) => {
                     const willBeAttending = json.reduce(u => u.confirmed_attendance);
                     const names = json.map(u => u.name.split(" ")[0]);
@@ -45,7 +54,8 @@ class Landing extends Component {
                     return this.setState({
                         names,
                     });
-                });
+                })
+                .catch(err => this.setState({ errorMessage: err.message }));
         }
     }
 
@@ -89,7 +99,7 @@ class Landing extends Component {
     }
 
     render() {
-        const { hasDeclined, names } = this.state;
+        const { errorMessage, hasDeclined, names } = this.state;
         const haveNames = Boolean(names.length);
         const nameString = haveNames ? names.join(" & ") : "";
 
@@ -100,12 +110,17 @@ class Landing extends Component {
                     showOurFaces
                     title={`Hi${nameString ? ` ${nameString}` : ""}!`}
                 />
-                <RSVP
-                    haveNames={haveNames}
-                    hasDeclined={hasDeclined}
-                    confirmAttendance={this.confirmAttendance}
-                    declineToAttend={this.declineToAttend}
-                />
+                {haveNames ? (
+                    <RSVP
+                        haveNames={haveNames}
+                        hasDeclined={hasDeclined}
+                        confirmAttendance={this.confirmAttendance}
+                        declineToAttend={this.declineToAttend}
+                    />
+                ) : (
+                    <UnknownGuest />
+                )}
+                {errorMessage && <ErrorIndicator error={errorMessage} />}
             </div>
         );
     }

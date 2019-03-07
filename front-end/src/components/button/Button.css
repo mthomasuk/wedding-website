@@ -6,7 +6,7 @@
 	cursor: pointer;
   	font-family: "Amatic-regular", serif;
 	font-size: 1.8em;
-	margin: 7px;
+	margin: 7px 0;
 	padding: 7px;
 	transition: all 0.15s ease-in-out;
 	width: 100%;
