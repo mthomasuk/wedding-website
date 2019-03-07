@@ -1,18 +1,19 @@
 .Error {
 	animation: 1s fadeOut forwards ease-in-out;
 	animation-delay: 1.5s;
-    background-color: #fd8585;
-    color: #484848;
-    font-family: "Amatic-regular", serif;
-    font-size: 1.8em;
-    font-weight: 600;
-    position: fixed;
-    bottom: 20px;
-    padding: 0.5em;
-    max-width: 400px;
-    border-radius: 5px;
-    width: 100%;
-    z-index: 3;
+  background-color: #fd8585;
+  color: #484848;
+  font-family: "Amatic-regular", serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  position: fixed;
+  bottom: 20px;
+  padding: 0.5em;
+  max-width: 400px;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 3;
+  pointer-events: none;
 }
 
 @keyframes fadeOut {
