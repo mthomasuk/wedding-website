@@ -5,6 +5,12 @@ import Button from "../button";
 import "./UnknownGuest.css";
 
 class UnknownGuest extends PureComponent {
+    onKeyDown = (e) => {
+        if ((e && e.key && e.key === "Enter") || !e) {
+            return this.onRedirect();
+        }
+    }
+
     onRedirect = () => {
         const { value } = this.node;
         return window.location = `/${value}`;
@@ -26,6 +32,7 @@ class UnknownGuest extends PureComponent {
                         className="Input"
                         ref={node => this.node = node}
                         type="text"
+                        onKeyDown={this.onKeyDown}
                     />
                     <Button
                         type="submit"
