@@ -6,7 +6,7 @@ const AGift = ({
     id, title, subtitle, link, value, img_src,
 }) => (
     <div key={id} className="Gift">
-        <img src={`/images/${img_src}`} alt={title} />
+        <img src={`/images/${img_src.trim()}`} alt={title} />
         <div className="Gift-Title">{title}</div>
         <div className="Gift-SubTitle">{subtitle}</div>
         <div className="Gift-Link">
