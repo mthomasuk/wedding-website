@@ -17,18 +17,17 @@
 }
 
 .Form-Container {
-  padding: 1em 4em 4em;
+  padding: 0em 4em 4em;
   z-index: 1;
 }
 
 .Form-Container .Input {
-  border: solid #737373 3px;
+  border: solid #737373 1px;
   border-radius: 5px;
   width: 100%;
-  font-family: "Amatic-regular", serif;
-  font-size: 1.8em;
-  margin: 7px 0;
-  padding: 7px;
+  font-size: 1em;
+  margin-bottom: 7px;
+  padding: 15px 12px;
 }
 
 @media (max-width: 600px) {

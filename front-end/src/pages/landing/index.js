@@ -108,7 +108,7 @@ class Landing extends Component {
                 <Header
                     backgroundColour="rgb(106, 140, 149)"
                     showOurFaces
-                    title={`Hi${nameString ? ` ${nameString}` : ""}!`}
+                    title={nameString ? `Hi ${nameString}!` : "Hello!"}
                 />
                 {haveNames ? (
                     <RSVP

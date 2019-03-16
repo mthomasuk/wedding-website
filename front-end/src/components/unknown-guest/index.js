@@ -13,30 +13,33 @@ class UnknownGuest extends PureComponent {
 
     onRedirect = () => {
         const { value } = this.node;
-        return window.location = `/${value}`;
+        return value ? window.location = `/${value}` : null;
     }
 
     render() {
         return (
             <Fragment>
                 <div className="UnknownGuest-content">
-                    <h3>We&apos;d love to see you at our wedding</h3>
+                    <p>Thanks so much for visiting our wedding website.</p>
+                    <p><b>Ready to RSVP?</b></p>
                     <p>
-                        It&apos;s on <b>September 7th</b> at <b>Walthamstow Wetlands</b>.<br />
-                        If you&apos;ve got the code from your invite, please enter it below.
+                        You can also choose your menu options, let us know about allergies
+                        and pick a song to be played on the day.
                     </p>
-                    <p>If you don&apos;t have a code, contact Mark or Rhiannon for one.</p>
+                    <p><b>Enter the code on your invite in the box below</b></p>
+                    <p>(it&apos;s case sensitive)</p>
                 </div>
                 <div className="Form-Container">
                     <input
                         className="Input"
+                        placeholder="e.g. XiWhNyilIJF="
                         ref={node => this.node = node}
                         type="text"
                         onKeyDown={this.onKeyDown}
                     />
                     <Button
                         type="submit"
-                        title="Let me in"
+                        title="Let's go"
                         onClick={this.onRedirect}
                     />
                 </div>
