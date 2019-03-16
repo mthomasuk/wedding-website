@@ -9,6 +9,7 @@
 	margin: 7px 0;
 	padding: 7px;
 	transition: all 0.15s ease-in-out;
+	max-width: 300px;
 	width: 100%;
 }
 

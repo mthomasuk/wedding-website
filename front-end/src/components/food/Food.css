@@ -33,3 +33,9 @@
 .Food-radio {
   margin-right: 0.75em;
 }
+
+@media (max-width: 600px) {
+  .Food-content {
+    padding: 1em 4em 2em;
+  }
+}
