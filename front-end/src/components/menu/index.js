@@ -60,13 +60,10 @@ class Menu extends PureComponent {
                     >
                         <li>Menu</li>
                         <li>
-                            <Link to="">About the venue</Link>
+                            <Link to="/directions">Directions and parking</Link>
                         </li>
                         <li>
-                            <Link to="">Directions and parking</Link>
-                        </li>
-                        <li>
-                            <Link to="">Hotels nearby</Link>
+                            <Link to="/hotels">Hotels nearby</Link>
                         </li>
                     </ul>
                 )}

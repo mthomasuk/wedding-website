@@ -22,8 +22,8 @@ class Complete extends PureComponent {
                     title="That's it!"
                 />
                 <div className="Complete-contents">
-                    <Link to="">Get directions to the venue</Link>
-                    <Link to="">See local hotels</Link>
+                    <Link to="/directions">Get directions to the venue</Link>
+                    <Link to="/hotels">See local hotels</Link>
                     <Link to={`/gifts/${key}`}>Browse the gift list</Link>
                 </div>
             </div>

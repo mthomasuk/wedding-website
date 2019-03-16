@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write ./**/*.js"
   },
   "browserslist": [
     ">0.2%",
@@ -25,6 +26,7 @@
   ],
   "devDependencies": {
     "eslint-config-airbnb": "17.1.0",
-    "eslint-plugin-react": "7.12.4"
+    "eslint-plugin-react": "7.12.4",
+    "prettier": "1.16.4"
   }
 }

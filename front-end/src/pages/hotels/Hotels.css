@@ -1,0 +1,38 @@
+.Hotels {
+	align-items: center;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Big-Caslon", serif;
+	justify-content: flex-start;
+	position: relative;
+	height: 100%;
+	text-align: center;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.Hotels-contents {
+  	color: #585858;
+  	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  	font-size: 1.1em;
+  	text-align: left;
+	display: block;
+	max-width: 800px;
+	padding: 4em;
+	width: 100%;
+	z-index: 1;
+}
+
+.Hotels a {
+    color: #967fb3;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	.Hotels-contents {
+		padding: 1em 4em 3em;
+		width: auto;
+	}
+}
