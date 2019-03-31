@@ -100,12 +100,9 @@
   }
 
   .Slash-left,
-  .Slash-right {
-    display: none;
-  }
-
+  .Slash-right,
   .Slash-bottom {
-    top: -150px;
+    display: none;
   }
 }
 
