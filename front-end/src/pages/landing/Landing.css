@@ -12,3 +12,42 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.Button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4em;
+  width: 100%;
+}
+
+.Button-container button {
+  margin: 1.5em;
+  z-index: 3;
+}
+
+.Button-container button:first-of-type {
+  justify-self: flex-start;
+}
+.Button-container button:last-of-type {
+  justify-self: flex-end;
+}
+
+@media (max-width: 600px) {
+  .Landing {
+    display: block;
+  }
+
+  .Button-container {
+    flex-direction: column-reverse;
+    padding-bottom: 2em;
+  }
+
+  .Button-container button {
+    display: block;
+    margin: 0.25em auto;
+    width: 80%;
+    line-height: 0;
+    padding: 25px 0;
+  }
+}
