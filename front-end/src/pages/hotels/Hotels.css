@@ -28,11 +28,12 @@
 .Hotels a {
     color: #967fb3;
     text-decoration: none;
+    word-break: break-word;
 }
 
 @media (max-width: 600px) {
 	.Hotels-contents {
 		padding: 1em 4em 3em;
-		width: auto;
+		width: 100%;
 	}
 }

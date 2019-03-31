@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { withCookies } from "react-cookie";
 
 import Header from "../../components/header";
 import ErrorIndicator from "../../components/error";
@@ -20,15 +21,32 @@ class Landing extends Component {
 
     componentDidMount() {
         const {
+            cookies,
             history: {
                 push,
             },
             match: {
-                params: { key },
+                params: { key: pathKey },
             },
         } = this.props;
 
+        const cookieKey = cookies.get("key");
+
+        if (cookieKey && !pathKey) {
+            return window.location = (`/${cookieKey}`);
+        }
+
+        const key = pathKey || cookieKey;
+
         if (key) {
+            if (!cookieKey) {
+                cookies.set("key", key, {
+                    path: "/",
+                    sameSite: true,
+                    secure: true,
+                });
+            }
+
             fetch(`${API_ROOT}/guests/${key}`)
                 .then((response) => {
                     if (response.ok) {
@@ -126,4 +144,4 @@ class Landing extends Component {
     }
 }
 
-export default withRouter(Landing);
+export default withRouter(withCookies(Landing));
