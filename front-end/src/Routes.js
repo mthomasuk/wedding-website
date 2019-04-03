@@ -8,12 +8,13 @@ import SongPage from "./pages/songs";
 import CompletePage from "./pages/complete";
 import GiftsPage from "./pages/gifts";
 import HotelsPage from "./pages/hotels";
+import DirectionsPage from "./pages/directions";
 
 export default () => (
     <Router>
         <Switch>
             <Route exact path="/hotels" component={HotelsPage} />
-            <Route exact path="/directions" component={HotelsPage} />
+            <Route exact path="/directions" component={DirectionsPage} />
             <Route exact path="/allergies/:key" component={AllergyPage} />
             <Route exact path="/complete/:key" component={CompletePage} />
             <Route exact path="/dinner/:key" component={DinnerPage} />
