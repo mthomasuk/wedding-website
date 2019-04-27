@@ -44,8 +44,25 @@
 }
 
 @media (max-width: 600px) {
+  .Complete {
+    display: block;
+  }
+
+  .Button-container {
+    flex-direction: column-reverse;
+    padding-bottom: 2em;
+  }
+
+  .Button-container button {
+    display: block;
+    margin: 0.25em auto;
+    width: 80%;
+    line-height: 0;
+    padding: 25px 0;
+  }
+
 	.Complete-contents {
-		padding: 1em 0 3em;
+		padding: 1em 2em 3em;
 		width: auto;
 	}
 }
