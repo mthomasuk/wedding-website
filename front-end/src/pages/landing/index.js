@@ -55,8 +55,8 @@ class Landing extends Component {
                     throw Error("That code didn't work - try another!");
                 })
                 .then((json) => {
-                    const willBeAttending = json.reduce(u => u.confirmed_attendance);
-                    const names = json.map(u => u.name.split(" ")[0]);
+                    const willBeAttending = json.reduce(u => u ? u.confirmed_attendance : null);
+                    const names = json.map(u => u ? u.name.split(" ")[0] : null);
 
                     if (willBeAttending === true) {
                         return push(`/dinner/${key}`);
